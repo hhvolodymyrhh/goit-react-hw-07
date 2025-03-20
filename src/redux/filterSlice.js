@@ -1,11 +1,11 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  name: '',
+  name: "",
 };
 
-const filterSlice = createSlice({
-  name: 'filter',
+export const filterSlice = createSlice({
+  name: "filter",
   initialState: initialState,
   reducers: {
     changeFilter(state, action) {
@@ -14,12 +14,9 @@ const filterSlice = createSlice({
   },
 });
 
-//to store
-const filterReducer = filterSlice.reducer;
+
+export const filterReducer = filterSlice.reducer;
 export default filterReducer;
 
-// to Search Box
 export const { changeFilter } = filterSlice.actions;
-
-// to contactSlice
 export const selectNameFilter = state => state.filters.name;
