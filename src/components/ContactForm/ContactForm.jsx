@@ -25,7 +25,7 @@ const ContactForm = () => {
 
     actions.resetForm();
   };
-console.log(addContact());
+// console.log(addContact());
 
   return (
     <Formik
