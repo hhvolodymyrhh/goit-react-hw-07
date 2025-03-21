@@ -39,7 +39,7 @@ export const contactSlice = createSlice({
       })
       .addCase(addContact.rejected, handleRejected)
       .addCase(deleteContact.pending, handlePending)
-      .addCase(deleteTask.fulfilled, (state, action) => {
+      .addCase(deleteContact.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
         state.items = state.items.filter(
@@ -57,8 +57,6 @@ export const contactSlice = createSlice({
 		// }
 	
 })
-
-
 
 
 export const selectContacts = state => state.contacts.items;
