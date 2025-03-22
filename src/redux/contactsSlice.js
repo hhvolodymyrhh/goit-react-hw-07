@@ -67,7 +67,8 @@ export const selectFilteredContacts = createSelector(
   [selectContacts, selectNameFilter],
   (contacts, filter) => {
     return contacts.filter(contact => {
-      return contact.name.toLowerCase().includes(filter.toLowerCase().trim());
+      return contact.name.toLowerCase().includes(filter.toLowerCase().trim()) ||
+        String(contact.number).includes(filter.trim());
     });
   }
 );

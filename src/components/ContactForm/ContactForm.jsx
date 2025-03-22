@@ -1,6 +1,5 @@
 import css from './ContactForm.module.css';
 import { Field, Form, Formik } from 'formik';
-import { nanoid } from 'nanoid';
 import { validationSchema } from './validationSchema';
 
 import { addContact } from '../../redux/contactsOps';
@@ -16,16 +15,12 @@ const ContactForm = () => {
 
   const handleSubmit = (values, actions) => {
     const newContact = {
-      id: nanoid(),
       name: values.name,
       number: values.number,
     };
-
     dispatch(addContact(newContact));
-
     actions.resetForm();
   };
-// console.log(addContact());
 
   return (
     <Formik
@@ -34,12 +29,14 @@ const ContactForm = () => {
       onSubmit={handleSubmit}
     >
       {({ errors, touched }) => {
-        const nameId = nanoid();
-        const numberId = nanoid();
-
         return (
           <Form className={css.form}>
-            <Field className={css.field} type="text" name="name" id={nameId} placeholder='Your name'/>
+            <Field
+              className={css.field}
+              type="text"
+              name="name"
+              placeholder="Your name"
+            />
             {errors.name && touched.name ? (
               <div className={css.errors}>{errors.name}</div>
             ) : null}
@@ -47,8 +44,7 @@ const ContactForm = () => {
               className={css.field}
               type="number"
               name="number"
-              id={numberId}
-              placeholder='Your number'
+              placeholder="Your number"
             />
             {errors.number && touched.number ? (
               <div className={css.errors}>{errors.number}</div>

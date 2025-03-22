@@ -1,7 +1,6 @@
 .container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 20px;
   border: 1px solid #000;
   border-radius: 5px;
@@ -10,7 +9,7 @@
 
 .contactItem {
   display: flex;
- justify-content: space-around;
+ justify-content: space-between;
  gap: 10px;
 }
 
